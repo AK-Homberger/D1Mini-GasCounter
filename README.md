@@ -4,9 +4,9 @@ A simple counter for the gas meter with a web interface. It is measuring pulses 
 
 ![Counter-German](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Gascounter.png)
 
-Depending on your gas meter type it might be sufficient to use a reed contcat switch. For my meter (Pipersberg G4 RF1 c)it was necesssary to use an inductive sensor (LJ18A3-8-Z/BX).
+Depending on your gas meter type it might be sufficient to use a reed contcat switch. For my meter (Pipersberg G4 RF1 c) it was necesssary to use an inductive sensor (LJ18A3-8-Z/BX).
 
-With the web interface you can set the current metering value. After that it counts the individual pulses from the meter (0.01 m^3).
+With the web interface you can set the current metering value. After that, it counts the individual pulses from the meter (0.01 m^3).
 It shows the overall consumption, the currrent day consumption, the consumption from yesterday and the current consumption.
 
 In addition the consumption fom the last hour and the total average consumption is shown.
