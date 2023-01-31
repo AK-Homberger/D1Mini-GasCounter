@@ -1,4 +1,4 @@
-# D1-Mini Gas Counter
+# D1 Mini Gas Counter
 
 A simple counter for the gas meter with a web interface. It is measuring pulses from the gas meter and calculating consuption values which are shown on a web interface.
 
