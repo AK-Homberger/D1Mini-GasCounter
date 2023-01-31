@@ -28,3 +28,5 @@ That's all.
 const char *ssid = "ssid";           // Set WLAN name
 const char *password = "password";   // Set password
 ```
+
+The sensor is connected to pin D5 on the D1 Mini. The sensor (LJ18A3-8-Z/BX) requires 12 Volt. For the D1 Mini you need the an additional step-downn converte to create 5 Volt from the 12 Volt. With a reed contact you can directly use 5 Volt power supply.
