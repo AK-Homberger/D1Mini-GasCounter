@@ -58,9 +58,9 @@ table {
   cursor: pointer;
 }
 </style>
-<title>Gaszähler</title>
+<title>Gas Counter</title>
 <hr>
-<h1>Gaszähler</h1>
+<h1>Gas Counter</h1>
 <hr>
 </head>
 <body style="font-family: verdana,sans-serif" BGCOLOR="#819FF7">
