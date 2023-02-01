@@ -2,7 +2,7 @@
 
 A simple counter for the gas meter with a web interface. It is measuring pulses from the gas meter and calculating consumption values which are shown on a web interface.
 
-![Counter-German](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Gascounter.png)
+![Counter-German](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Webclient_en.png)
 
 Depending on your gas meter type it might be sufficient to use a reed contcat switch. For my meter (Pipersberg G4 RF1 c) it was necesssary to use an inductive sensor (LJ18A3-8-Z/BX).
 
