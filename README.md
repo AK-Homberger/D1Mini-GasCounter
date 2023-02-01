@@ -17,7 +17,7 @@ If the client supports MDNS (Bonjour) you can access the server with "gascounter
 
 ![Meter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Meter.jpg)
 
-Within the scetch you can select the language by coosing the desired header page, the timezone and set the wlan credentials.
+Within the scetch you can select the language by coosing the desired header file, the timezone and set the wlan credentials.
 That's all.
 
 ```
