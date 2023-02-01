@@ -11,6 +11,8 @@ It shows the overall consumption, the currrent day consumption, the consumption 
 
 In addition the consumption fom the last hour and the total average consumption is shown.
 
+If the client supports MDNS (Bonjour) you can access the server with "gascounter.local". If not you have to use the IP-Address.
+
 ![Meter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Meter.jpg)
 
 Within the scetch you can select the language by coosing the desired header page, the timezone and set the wlan credentials.
