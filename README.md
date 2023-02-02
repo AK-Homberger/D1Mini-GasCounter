@@ -6,7 +6,7 @@ A simple ESP8266 based (D1 Mini) counter for the gas meter with a web interface.
 
 ![Counter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Webclient_de.png)
 
-Depending on your gas meter type it might be sufficient to use a reed contact switch. For my meter (Pipersberg G4 RF1 c) it was necesssary to use an inductive sensor (LJ18A3-8-Z/BX).
+Depending on your gas meter type it might be sufficient to use a reed contact switch. For my meter [Pipersberg G4 RF1 c](https://www.pipersberg.de/wp-content/uploads/2019/12/Gas_81_Daten-Gaszaehler-RF1c-G4G6.pdf) it was necesssary to use an inductive sensor (LJ18A3-8-Z/BX).
 
 With the web interface you can set the current metering value. After that, it counts the individual pulses from the meter (0.01 m^3).
 It shows the overall consumption, the currrent day consumption, the consumption from yesterday and the current consumption.
