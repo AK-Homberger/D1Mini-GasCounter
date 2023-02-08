@@ -25,7 +25,12 @@ The sensor (LJ18A3-8-Z/BX) is supplied with 12 Volt (6-36 Volt). For the D1 Mini
 A more detailled connection diagram will follow soon.
 
 # Software
-An additinal library (ArduinoJson) has to be installed with the library manager in the Arduino IDE.
+The Arduino IDE has to be installed an the ESP8266 Board URL "https://arduino.esp8266.com/stable/package_esp8266com_index.json" has to be included in the preferences.
+
+Two additional libraries have to be installed with the library manager in the Arduino IDE:
+
+- ArduinoJson
+- PubSubClient
 
 Within the scetch you can select the language by coosing the desired header file, the timezone and set the wlan credentials.
 If you want to publish data via MQTT then set "USE_MQTT" to "true" otherwise to "false". The MQTT server IP can be defined with the "mqtt_server" variable.
