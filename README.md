@@ -49,7 +49,7 @@ PubSubClient client(Mqtt);
 const char* mqtt_server = "192.168.0.71";
 #endif
 ```
-I'm using MQTT to publish data to an [ioBroker](https://www.iobroker.net/) instance with an [influxdb](https://github.com/influxdata/influxdb#readme) database on a Raspberry server. That provides an easy was to log consumption data and to visualise the consumption history.
+I'm using MQTT to publish data to an [ioBroker](https://www.iobroker.net/) instance with an [influxDB](https://github.com/influxdata/influxdb#readme) database on a Raspberry server. That provides an easy was to log consumption data and to visualise the consumption history.
 
 ![ioBroker](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/ioBroker.png)
 
