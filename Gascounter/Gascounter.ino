@@ -13,16 +13,19 @@
 */
 
 // Gas counter with WLAN
-// Version 1.0, 16.12.2022, AK-Homberger
+// Version 1.1, 08.02.2022, AK-Homberger
 
 #include <time.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <ArduinoJson.h>
 #include <ArduinoOTA.h>
+#include <PubSubClient.h>
 
 //#include "index_html_de.h"    // Web site information for Gauge / Buttons in German
 #include "index_html_en.h"      // Web site information for Gauge / Buttons in English
+
+#define USE_MQTT          true  // Set to false if no MQTT to be used
 
 #define TIME_24_HOUR      true
 #define NTP_SERVER "de.pool.ntp.org"
@@ -32,23 +35,32 @@
 const char *ssid = "ssid";           // Set WLAN name
 const char *password = "password";   // Set password
 
+// MQTT
+#if USE_MQTT == true
+WiFiClient Mqtt;
+PubSubClient client(Mqtt);
+const char* mqtt_server = "192.168.0.71";
+#endif
+
+// Web Server
 ESP8266WebServer server(80);         // Web Server at port 80
 
 // Gas Counter
 #define Gas_Counter_Pin D5           // Counter impulse is measured as interrupt on pin D5
 #define GasDelta 0.01                // 0.01 m^3 per counter
 
-double GasCounter = 0;               // Counter for gas events
+double GasCounter = 4484.61;               // Counter for gas events
 double DeltaCounter = 0;
-double DayCounter = 0;
-double DayBeforeCounter = 0;
+double DayCounter = 3.35;
+double DayBeforeCounter = 5.7;
+double DayEndCounter = 4481.1;
 double m3h = 0;
 double m3h_akt = 0;
 unsigned long reset_time = 0;
 
-double MinuteValue[61];
-unsigned MinutePtr = 0;
-bool FullHour = false;
+double MinuteValue[61];             // Ring buffer for minute values
+unsigned MinutePtr = 0;             // Ring buffer pointer
+bool FullHour = false;              // Full hour data stored
 
 volatile unsigned long StartValue = 0;            // First interrupt value
 volatile unsigned long PeriodCount  = 0;          // period time in ms
@@ -65,7 +77,7 @@ void IRAM_ATTR handleInterrupt() {
   DeltaCounter += GasDelta;
   DayCounter += GasDelta;
 
-  unsigned long TempVal = millis();
+  unsigned long TempVal = millis();   // Time period for average calculation
   PeriodCount = TempVal - StartValue;
   StartValue = TempVal;
   Last_int_time = millis();
@@ -88,6 +100,7 @@ void setup() {
   Serial.println("Start");
 
 
+  // Start WLAN
   Serial.println("Start WLAN Client DHCP");       // WiFi Mode Client with DHCP
   WiFi.begin(ssid, password);
 
@@ -101,24 +114,62 @@ void setup() {
     }
   }
 
+#if USE_MQTT == true
+  // Start MQTT
+  randomSeed(micros());
+  client.setServer(mqtt_server, 1883);
+#endif
+
   // Handle HTTP request events
 
   server.on("/", Event_Index);
   server.on("/set_data", Event_SetGasCount);
   server.on("/get_data", Event_GetGasCount);
   server.on("/reset", Event_ResetCount);
-
   server.onNotFound(handleNotFound);
 
   server.begin();
   Serial.println("HTTP Server started");
 
-  ArduinoOTA.setHostname("Gascounter");     // Arduino OTA config and start
+  ArduinoOTA.setHostname("Gascounter"); // Arduino OTA config and start
   ArduinoOTA.begin();
 
-  configTzTime(TZ_INFO, NTP_SERVER); // Synchronise ESP32 system time with NTP
-  getLocalTime(&local, 10000);       // Try  10 seconds
+  configTzTime(TZ_INFO, NTP_SERVER);    // Synchronise system time with NTP
+  getLocalTime(&local, 10000);          // Try  10 seconds
 }
+
+#if USE_MQTT == true
+//*****************************************************************************
+// Check MQTT connection an reconnect if necessary
+
+void check_mqtt_connection()
+{
+  static unsigned long last_time = 0;
+
+  if (!client.connected() && (millis() - last_time > 6000))  // Try reconnect every 6 seconds
+  {
+    last_time = millis();
+
+    Serial.print("Attempting MQTT connection...");
+    // Create a random client ID
+    String clientId = "Gascounter-";
+    clientId += String(random(0xffff), HEX);
+    // Attempt to connect
+    //if you MQTT broker has clientID,username and password
+    //please change following line to    if (client.connect(clientId,userName,passWord))
+    if (client.connect(clientId.c_str()))
+    {
+      Serial.println("connected");
+      //once connected to MQTT broker, subscribe command if any
+      // client.subscribe("OsoyooCommand");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" try again in 5 seconds");
+    }
+  }
+}
+#endif
 
 
 //*****************************************************************************
@@ -258,20 +309,29 @@ bool getLocalTime(struct tm * info, uint32_t ms)
 void loop() {
   struct tm local;
   static unsigned long timer = 0;
+  static unsigned long lastMsg = 0;
+  static double lastGasCounter = 0;
   static bool lock = false;
   static int old_min = -1;
+  char Text[20];
 
   server.handleClient();
   ArduinoOTA.handle();
 
-  if (millis() - timer > 10000) {
+#if USE_MQTT == true
+  client.loop();
+  check_mqtt_connection();
+#endif
+
+  if (millis() - timer > 10000) {   // Synchronise local time ever 10 seconds
     getLocalTime(&local, 10000);
     timer = millis();
 
-    if (old_min == -1) {
-      old_min = local.tm_min;
+    if (old_min == -1) {          
+      old_min = local.tm_min;       // Set minute value only once 
     }
 
+    // Hande day roll over     
     if (local.tm_hour == 0 && local.tm_min == 0 && lock == false) {
       DayBeforeCounter = DayCounter;
       DayCounter = 0;
@@ -284,9 +344,33 @@ void loop() {
       lock = false;
     }
 
-    if (local.tm_min != old_min) {
-      addMinuteValue();
+    if (local.tm_min != old_min) {  // New minute
+      addMinuteValue();             // Add value to ring buffer
       old_min = local.tm_min;
     }
   }
+
+#if USE_MQTT == true
+  
+  // Handle MQTT publising of data
+  // Send every minute or if counter changed
+  
+  if (client.connected() && ((millis() - lastMsg > 60000) || (GasCounter != lastGasCounter))) {
+    lastMsg = millis();
+    lastGasCounter = GasCounter;
+
+    snprintf(Text, sizeof(Text), "%8.2f", GasCounter);
+    client.publish("Count", Text);
+    snprintf(Text, sizeof(Text), "%5.2f", DayCounter);
+    client.publish("Today", Text);
+    snprintf(Text, sizeof(Text), "%5.2f", DayBeforeCounter);
+    client.publish("Yesterday", Text);
+    snprintf(Text, sizeof(Text), "%8.2f", DayEndCounter);
+    client.publish("DayEndCount", Text);
+    snprintf(Text, sizeof(Text), "%5.2f", m3h_akt);
+    client.publish("Current", Text);
+    snprintf(Text, sizeof(Text), "%5.2f", m3h);
+    client.publish("Hour", Text);
+  }
+#endif
 }
