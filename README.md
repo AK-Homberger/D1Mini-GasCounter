@@ -1,6 +1,6 @@
 # D1 Mini Gas Counter
 
-A simple ESP8266 based (D1 Mini) counter for the gas meter with a web interface. It is measuring pulses from the gas meter and calculating consumption values which are shown on a web interface. It's available in English/German language.
+A simple ESP8266 based (D1 Mini) counter for the gas meter with a web interface. It is measuring pulses from the gas meter and calculating consumption values which are shown on a web interface. It's available in English/German language. MQTT is supported as an option.
 
 ![Counter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Webclient_en.png)
 
