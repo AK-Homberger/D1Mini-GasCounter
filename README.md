@@ -18,21 +18,30 @@ If the client supports MDNS (Bonjour) you can access the server with "gascounter
 ![Meter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Meter.jpg)
 
 Within the scetch you can select the language by coosing the desired header file, the timezone and set the wlan credentials.
-That's all.
+If you want to publish data via MQTT then set "USE_MQTT" to "true" otherwise to "false". The MQTT server IP can be defined with the "mqtt_server" variable.
 
 ```
-//#include "index_html_de.h"    // Web site information for Gauge / Buttons in German
-#include "index_html_en.h"      // Web site information for Gauge / Buttons in English
+#define USE_MQTT          true  // Set to false if no MQTT to be used
 
 #define TIME_24_HOUR      true
 #define NTP_SERVER "de.pool.ntp.org"
 #define TZ_INFO "WEST-1DWEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" // Western European Time
 
 // Wifi
-const char *ssid = "ssid";           // Set WLAN name
-const char *password = "password";   // Set password
+const char *ssid = "hope";           // Set WLAN name
+const char *password = "thisis123";   // Set password
+
+// MQTT
+#if USE_MQTT == true
+WiFiClient Mqtt;
+PubSubClient client(Mqtt);
+const char* mqtt_server = "192.168.0.71";
+#endif
 ```
 
 An additinal library (ArduinoJson) has to be installed with the library manager in the Arduino IDE.
 
 The sensor is connected to pin D5 on the D1 Mini. The sensor (LJ18A3-8-Z/BX) is supplied with 12 Volt (6-36 Volt). For the D1 Mini you need the an additional step-down converter to create 5 Volt from the 12 Volt. With a reed contact you can directly use 5 Volt power supply.
+
+# Updates:
+- Version 1.1 - 08.02.230: Added MQTT option.
