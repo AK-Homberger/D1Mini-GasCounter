@@ -18,7 +18,9 @@ If the client supports MDNS (Bonjour), you can access the server with "gascounte
 ![Meter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Meter.jpg)
 
 # Hardware
-The sensor is connected to pin D5 on the D1 Mini. The sensor (LJ18A3-8-Z/BX) is supplied with 12 Volt (6-36 Volt). For the D1 Mini you need an additional [step-down converter](https://eckstein-shop.de/MiniDC-DCStep-downSpannungsreglerMP1584ENBuckPowerModuleOutout02C8-20V3A) to create 5 Volt from the 12 Volt. With a reed contact you can directly use 5 Volt power supply.
+The open collector output from the sensor is connected to pin D5 on the D1 Mini. No additional resistor is necessary due to the configured internal pull-up resistor for D5 input pin.
+
+The sensor (LJ18A3-8-Z/BX) is supplied with 12 Volt (6-36 Volt). For the D1 Mini you need an additional [step-down converter](https://eckstein-shop.de/MiniDC-DCStep-downSpannungsreglerMP1584ENBuckPowerModuleOutout02C8-20V3A) to create 5 Volt from the 12 Volt. With a reed contact you can directly use 5 Volt power supply.
 
 # Software
 An additinal library (ArduinoJson) has to be installed with the library manager in the Arduino IDE.
