@@ -49,11 +49,11 @@ ESP8266WebServer server(80);         // Web Server at port 80
 #define Gas_Counter_Pin D5           // Counter impulse is measured as interrupt on pin D5
 #define GasDelta 0.01                // 0.01 m^3 per counter
 
-double GasCounter = 4484.61;               // Counter for gas events
+double GasCounter = 0;               // Counter for gas events
 double DeltaCounter = 0;
-double DayCounter = 3.35;
-double DayBeforeCounter = 5.7;
-double DayEndCounter = 4481.1;
+double DayCounter = 0;
+double DayBeforeCounter = 0;
+double DayEndCounter = 0;
 double m3h = 0;
 double m3h_akt = 0;
 unsigned long reset_time = 0;
