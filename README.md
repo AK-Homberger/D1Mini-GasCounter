@@ -24,6 +24,9 @@ Within the scetch you can select the language by coosing the desired header file
 If you want to publish data via MQTT then set "USE_MQTT" to "true" otherwise to "false". The MQTT server IP can be defined with the "mqtt_server" variable.
 
 ```
+//#include "index_html_de.h"    // Web site information for Gauge / Buttons in German
+#include "index_html_en.h"      // Web site information for Gauge / Buttons in English
+
 #define USE_MQTT          true  // Set to false if no MQTT to be used
 
 #define TIME_24_HOUR      true
@@ -31,8 +34,8 @@ If you want to publish data via MQTT then set "USE_MQTT" to "true" otherwise to 
 #define TZ_INFO "WEST-1DWEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" // Western European Time
 
 // Wifi
-const char *ssid = "hope";           // Set WLAN name
-const char *password = "thisis123";   // Set password
+const char *ssid = "ssid";           // Set WLAN name
+const char *password = "password";   // Set password
 
 // MQTT
 #if USE_MQTT == true
