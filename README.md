@@ -17,7 +17,7 @@ If the client supports MDNS (Bonjour) you can access the server with "gascounter
 
 ![Meter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Meter.jpg)
 
-#Software
+# Software
 An additinal library (ArduinoJson) has to be installed with the library manager in the Arduino IDE.
 
 Within the scetch you can select the language by coosing the desired header file, the timezone and set the wlan credentials.
@@ -44,7 +44,7 @@ const char* mqtt_server = "192.168.0.71";
 I'm using MQTT to publish data to an [ioBroker](https://www.iobroker.net/) instance with an [influxdb](https://github.com/influxdata/influxdb#readme) database on a Raspberry server. That provides an easy was to log consumption data and to visualise the consumption history.
 
 
-#Hardware
+# Hardware
 The sensor is connected to pin D5 on the D1 Mini. The sensor (LJ18A3-8-Z/BX) is supplied with 12 Volt (6-36 Volt). For the D1 Mini you need the an additional step-down converter to create 5 Volt from the 12 Volt. With a reed contact you can directly use 5 Volt power supply.
 
 # Updates:
