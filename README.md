@@ -63,4 +63,4 @@ I'm using MQTT to publish data to an [ioBroker](https://www.iobroker.net/) insta
 Detailled instructions for installation and configuration of ioBroker and influxdb will follow soon...
 
 # Updates:
-- Version 1.1 - 08.02.230: Added MQTT option.
+- Version 1.1 - 09.02.230: Added MQTT option.
