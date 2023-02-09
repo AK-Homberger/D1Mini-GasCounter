@@ -13,7 +13,7 @@
 */
 
 // Gas counter with WLAN
-// Version 1.1, 08.02.2022, AK-Homberger
+// Version 1.1, 09.02.2022, AK-Homberger
 
 #include <time.h>
 #include <ESP8266WiFi.h>
@@ -334,9 +334,8 @@ void loop() {
     // Hande day roll over     
     if (local.tm_hour == 0 && local.tm_min == 0 && lock == false) {
       DayBeforeCounter = DayCounter;
+      DayEndCounter = GasCounter;
       DayCounter = 0;
-      MinutePtr = 0;
-      FullHour = false;
       lock = true;
     }
 
