@@ -11,7 +11,7 @@ Depending on your gas meter type, it might be sufficient to use a reed contact s
 With the web interface you can set the current metering value. After that, it counts the individual pulses from the meter (0.01 m^3).
 It shows the overall consumption, the currrent day consumption, the consumption from yesterday and the current consumption.
 
-In addition the consumption fom the last hour and the total dayly average consumption is shown.
+In addition, the consumption fom the last hour and the total dayly average consumption is shown.
 
 If the client supports MDNS (Bonjour), you can access the server with "gascounter.local". If not you have to use the IP-Address.
 
