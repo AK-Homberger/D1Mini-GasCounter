@@ -62,6 +62,11 @@ I'm using MQTT to publish data to an [ioBroker](https://www.iobroker.net/) insta
 
 Detailled instructions for installation and configuration of ioBroker and influxdb will follow soon...
 
+# Parts:
+
+- D1 Mini [Link](https://www.reichelt.de/de/en/d1-mini-esp8266-v3-0-d1-mini-p253978.html?&nbc=1)
+- Sensor [Sensor](https://www.roboter-bausatz.de/p/d1-mini-v4.0-esp8266-iot-board-arduino-kompatibel)
+
 # Updates:
 - Version 1.1 - 09.02.230: Added MQTT option.
 - Version 1.3 - 13.02.230: Debouncing interrupt as preparation for reed contact use.
