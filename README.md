@@ -65,7 +65,7 @@ Detailled instructions for installation and configuration of ioBroker and influx
 # Parts:
 
 - D1 Mini [ESP8266](https://www.reichelt.de/de/en/d1-mini-esp8266-v3-0-d1-mini-p253978.html?&nbc=1)
-- Sensor [Sensor](https://www.roboter-bausatz.de/p/d1-mini-v4.0-esp8266-iot-board-arduino-kompatibel)
+- Sensor [Sensor]([https://www.roboter-bausatz.de/p/d1-mini-v4.0-esp8266-iot-board-arduino-kompatibel](https://www.roboter-bausatz.de/p/lj18a3-8-z-bx-8mm-induktiver-naeherungssensor-npn-no-switch-dc-6-36v-300ma))
 
 # Updates:
 - Version 1.1 - 09.02.230: Added MQTT option.
