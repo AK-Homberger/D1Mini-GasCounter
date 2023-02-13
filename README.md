@@ -68,6 +68,9 @@ Detailled instructions for installation and configuration of ioBroker and influx
 - D1 Mini [AzDelivery](https://www.az-delivery.de/en/products/d1-mini?variant=28983931346&utm_source=google&utm_medium=cpc&utm_campaign=19229855661&utm_content=147170319769&utm_term=&gclid=CjwKCAiA3KefBhByEiwAi2LDHM7r8K3XCFbBlfJzONqn45p8F_Yk5XTZbuT6FBbNv-6jXnv12LEDWhoC-ZQQAvD_BwE)
 - Sensor [RoboterBausatz](https://www.roboter-bausatz.de/p/lj18a3-8-z-bx-8mm-induktiver-naeherungssensor-npn-no-switch-dc-6-36v-300ma)
 - Reed Contact [Reichelt](https://www.reichelt.de/de/en/reed-sensor-170-v-0-5-a-normally-open-mk06-4c-p151832.html?&trstct=pos_11&nbc=1)
+- Step-Down-Converter [Eckstein](https://eckstein-shop.de/MiniDC-DCStep-downSpannungsreglerMP1584ENBuckPowerModuleOutout02C8-20V3A)
+- Power Supply 5V [Reichelt](https://www.reichelt.de/de/en/eco-friendly-plug-in-power-supply-unit-5-v-1000-ma-2-1-mm-snt-1000-5v-p111180.html?GROUPID=4946&START=0&OFFSET=100&SID=94f94f8fe09e887944479f1c1d0a4fcf48b8583b9cb9a4e3de5a0&LANGUAGE=EN&&r=1)
+- Power Supply 12 Volt(https://www.reichelt.de/de/en/eco-friendly-plug-in-power-supply-unit-12-v-600-ma-2-5-mm-snt-600-12v-2-5-p108992.html?&nbc=1)
 
 # Updates:
 - Version 1.1 - 09.02.230: Added MQTT option.
