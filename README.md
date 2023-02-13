@@ -64,7 +64,8 @@ Detailled instructions for installation and configuration of ioBroker and influx
 
 # Parts:
 
-- D1 Mini [ESP8266](https://www.reichelt.de/de/en/d1-mini-esp8266-v3-0-d1-mini-p253978.html?&nbc=1)
+- D1 Mini [Reichelt](https://www.reichelt.de/de/en/d1-mini-esp8266-v3-0-d1-mini-p253978.html?&nbc=1)
+- D1 Mini [AzDelivery](https://www.az-delivery.de/en/products/d1-mini?variant=28983931346&utm_source=google&utm_medium=cpc&utm_campaign=19229855661&utm_content=147170319769&utm_term=&gclid=CjwKCAiA3KefBhByEiwAi2LDHM7r8K3XCFbBlfJzONqn45p8F_Yk5XTZbuT6FBbNv-6jXnv12LEDWhoC-ZQQAvD_BwE)
 - Sensor [Sensor]([https://www.roboter-bausatz.de/p/d1-mini-v4.0-esp8266-iot-board-arduino-kompatibel](https://www.roboter-bausatz.de/p/lj18a3-8-z-bx-8mm-induktiver-naeherungssensor-npn-no-switch-dc-6-36v-300ma))
 
 # Updates:
