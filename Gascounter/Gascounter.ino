@@ -13,7 +13,7 @@
 */
 
 // Gas counter with WLAN
-// Version 1.1, 09.02.2022, AK-Homberger
+// Version 1.2, 13.02.2022, AK-Homberger
 
 #include <time.h>
 #include <ESP8266WiFi.h>
@@ -73,14 +73,17 @@ volatile unsigned long Last_int_time = 0;         // Stores last Interrupt time
 
 void IRAM_ATTR handleInterrupt() {
   noInterrupts();
-  GasCounter += GasDelta;             // Gas event: Count up
-  DeltaCounter += GasDelta;
-  DayCounter += GasDelta;
-
-  unsigned long TempVal = millis();   // Time period for average calculation
-  PeriodCount = TempVal - StartValue;
-  StartValue = TempVal;
-  Last_int_time = millis();
+  if (millis() - Last_int_time > 100) { // Debouncing 100 ms for reed contact
+    
+    DeltaCounter += GasDelta;           // Gas COUNT event: Count up
+    DayCounter += GasDelta;
+    GasCounter += GasDelta;             
+    
+    unsigned long TempVal = millis();   // Time period for average calculation
+    PeriodCount = TempVal - StartValue;
+    StartValue = TempVal;
+    Last_int_time = millis();    
+  }  
   interrupts();
 }
 
@@ -96,9 +99,7 @@ void setup() {
 
   // Init serial
   Serial.begin(115200);
-  Serial.print("");
   Serial.println("Start");
-
 
   // Start WLAN
   Serial.println("Start WLAN Client DHCP");       // WiFi Mode Client with DHCP
@@ -112,7 +113,9 @@ void setup() {
       Serial.println("\nReboot");                 // Reboot after 10 connection tries
       ESP.restart();
     }
-  }
+  }  
+  Serial.println();
+  Serial.println(WiFi.localIP());
 
 #if USE_MQTT == true
   // Start MQTT
@@ -327,11 +330,11 @@ void loop() {
     getLocalTime(&local, 10000);
     timer = millis();
 
-    if (old_min == -1) {          
-      old_min = local.tm_min;       // Set minute value only once 
+    if (old_min == -1) {
+      old_min = local.tm_min;       // Set minute value only once
     }
 
-    // Hande day roll over     
+    // Hande day roll over
     if (local.tm_hour == 0 && local.tm_min == 0 && lock == false) {
       DayBeforeCounter = DayCounter;
       DayEndCounter = GasCounter;
@@ -350,10 +353,10 @@ void loop() {
   }
 
 #if USE_MQTT == true
-  
+
   // Handle MQTT publising of data
   // Send every minute or if counter changed
-  
+
   if (client.connected() && ((millis() - lastMsg > 60000) || (GasCounter != lastGasCounter))) {
     lastMsg = millis();
     lastGasCounter = GasCounter;
