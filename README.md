@@ -64,3 +64,4 @@ Detailled instructions for installation and configuration of ioBroker and influx
 
 # Updates:
 - Version 1.1 - 09.02.230: Added MQTT option.
+- Version 1.3 - 13.02.230: Debouncing interrupt as preparation for reed contact use.
