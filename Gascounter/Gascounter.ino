@@ -13,7 +13,7 @@
 */
 
 // Gas counter with WLAN
-// Version 1.2, 13.02.2022, AK-Homberger
+// Version 1.4, 20.02.2022, AK-Homberger
 
 #include <time.h>
 #include <ESP8266WiFi.h>
@@ -74,16 +74,16 @@ volatile unsigned long Last_int_time = 0;         // Stores last Interrupt time
 void IRAM_ATTR handleInterrupt() {
   noInterrupts();
   if (millis() - Last_int_time > 100) { // Debouncing 100 ms for reed contact
-    
+
     DeltaCounter += GasDelta;           // Gas COUNT event: Count up
     DayCounter += GasDelta;
-    GasCounter += GasDelta;             
-    
+    GasCounter += GasDelta;
+
     unsigned long TempVal = millis();   // Time period for average calculation
     PeriodCount = TempVal - StartValue;
     StartValue = TempVal;
-    Last_int_time = millis();    
-  }  
+    Last_int_time = millis();
+  }
   interrupts();
 }
 
@@ -113,7 +113,7 @@ void setup() {
       Serial.println("\nReboot");                 // Reboot after 10 connection tries
       ESP.restart();
     }
-  }  
+  }
   Serial.println();
   Serial.println(WiFi.localIP());
 
@@ -317,7 +317,7 @@ void loop() {
   static bool lock = false;
   static int old_min = -1;
   char Text[20];
-
+  
   server.handleClient();
   ArduinoOTA.handle();
 
@@ -360,6 +360,18 @@ void loop() {
   if (client.connected() && ((millis() - lastMsg > 60000) || (GasCounter != lastGasCounter))) {
     lastMsg = millis();
     lastGasCounter = GasCounter;
+    
+    if (!FullHour) {
+      m3h = DeltaCounter / ((millis() - reset_time) / 1000) * 3600.0;
+    } else {
+      m3h = getM3hValue();
+    }
+
+    noInterrupts();
+    if (PeriodCount != 0) m3h_akt = (GasDelta / (PeriodCount / 1000)) * 3600.0; // PeriodCount in 0.001 of a second
+
+    if (millis() - Last_int_time > 60000) m3h_akt = 0;          // No signals m3h=0;
+    interrupts();
 
     snprintf(Text, sizeof(Text), "%8.2f", GasCounter);
     client.publish("Count", Text);
