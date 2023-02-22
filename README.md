@@ -60,6 +60,8 @@ I'm using MQTT to publish data to an [ioBroker](https://www.iobroker.net/) insta
 
 ![ioBroker](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/ioBroker.png)
 
+![VIS](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/ioBroker-VIS.png)
+
 Detailled instructions for installation and configuration of ioBroker and influxdb will follow soon...
 
 # Parts:
