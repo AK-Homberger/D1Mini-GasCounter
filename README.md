@@ -64,6 +64,8 @@ I'm using MQTT to publish data to an [ioBroker](https://www.iobroker.net/) insta
 
 Detailled instructions for installation and configuration of ioBroker and influxdb will follow soon...
 
+The visualisation is available [here](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/VIS-Project.zip). Just import it with the VIS editor.
+
 # Parts:
 
 - D1 Mini [Reichelt](https://www.reichelt.de/de/en/d1-mini-esp8266-v3-0-d1-mini-p253978.html?&nbc=1)
