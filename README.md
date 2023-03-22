@@ -70,7 +70,11 @@ An example, especially for a Bresser 3 channel sensor, can be found [here](https
 
 But integration with an ESP8266 plus [BME280](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/BME280-MQTT-Sender/BME280-MQTT-Sender.ino) or [DHT11](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/DHT11-MQTT-Sender/DHT11-MQTT-Sender.ino) via MQTT is another option. A sketch for both options is avalable with the links above.
 
-If you are using the Bresser sensor for outside Temp/Hum and one of the others (BME280/DHT11) for inside Temp/Hum the visualisation will work out of the box, without any changes needed in object names. For the MQTT objects, which are created automatically, it might be necessary to change the "role" of the object to "variable" and "type" to "number". For the Bresser sensor, everything is prepared corectly from the integration script.
+If you are using the Bresser sensor for outside Temp/Hum and one of the others (BME280/DHT11) for inside Temp/Hum the visualisation will work out of the box, without any changes needed in object names. For the MQTT objects, which are created automatically, it might be necessary to change the "role" of the object to "variable" and "type" to "number". 
+
+For the Bresser sensor, everything is prepared corectly from the integration script.
+
+The visualisation for the Bresser sensor supports also the Low Battery indicator in VIS. That means a blinking battery symbol is shown right to the humidity value, to indicate that the sensor is signaling a needed battery replacement.
 
 # Parts:
 
