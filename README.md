@@ -72,7 +72,7 @@ But integration with an ESP8266 plus [BME280](https://github.com/AK-Homberger/D1
 
 If you are using the Bresser sensor for outside Temp/Hum and one of the others (BME280/DHT11) for inside Temp/Hum the visualisation will work out of the box, without any changes needed in object names. For the MQTT objects, which are created automatically, it might be necessary to change the "role" of the object to "variable" and "type" to "number". 
 
-For the Bresser sensor, everything is prepared corectly from the integration script.
+For the Bresser sensor, everything is prepared correctly from the integration script.
 
 The visualisation for the Bresser sensor supports also the Low Battery indicator in VIS. That means a blinking battery symbol is shown right to the humidity value, to indicate that the sensor is signaling a needed battery replacement.
 
