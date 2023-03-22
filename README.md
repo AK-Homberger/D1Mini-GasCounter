@@ -64,7 +64,7 @@ I'm using MQTT to publish data to an [ioBroker](https://www.iobroker.net/) insta
 
 Detailled instructions for installation and configuration of ioBroker and influxdb will follow soon...
 
-The visualisation is available [here](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/VIS-Project.zip). Just import it with the VIS editor. The visulisation is using, in addition to the gas values, also inside/outside temperature and humidity. One option to get this information into ioBroker is a receiver/decoder for 433MHz sensors. An example, especially for a Bresser 3 channel sensor, can be found [here](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder). But integration with an ESP8266 plus BME280 via MQTT is another option.
+The visualisation is available [here](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/VIS-Project.zip). Just import it with the VIS editor. The visulisation is using, in addition to the gas values, also inside/outside temperature and humidity. One option to get this information into ioBroker is a receiver/decoder for 433MHz sensors. An example, especially for a Bresser 3 channel sensor, can be found [here](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder). But integration with an ESP8266 plus [BME280](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/BME280-MQTT-Sender/BME280-MQTT-Sender.ino) or [DHT11)() via MQTT is another option.
 
 # Parts:
 
