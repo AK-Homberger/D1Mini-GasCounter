@@ -74,7 +74,7 @@ If you are using the Bresser sensor for outside Temp/Hum and one of the others (
 
 For the Bresser sensor, everything is prepared correctly from the integration script.
 
-For a corretly working visualisation, please make sure to enable Influxdb logging in ioBroker for these objects:
+For a correctly working visualisation, please make sure to enable Influxdb logging in ioBroker for these objects:
 
 - javascript.0.Temperature
 - mqtt.0.InsideTemperature
