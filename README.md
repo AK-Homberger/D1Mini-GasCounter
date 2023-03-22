@@ -70,6 +70,8 @@ An example, especially for a Bresser 3 channel sensor, can be found [here](https
 
 But integration with an ESP8266 plus [BME280](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/BME280-MQTT-Sender/BME280-MQTT-Sender.ino) or [DHT11](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/DHT11-MQTT-Sender/DHT11-MQTT-Sender.ino) via MQTT is another option. A sketch for both options is avalable with the links above.
 
+If you are using the Bresser sensor for outside Temp/Hum and one of the others (BME280/DHT11) for inside Temp/Hum the visualisation will work out of the cox without any changes needed in object names. For the MQTT objects, which are created automatically, it might be necessry to change the "role" of the object to "variable" ant "type" to "number". For the Bresser project evrything is prepared from the integration script.
+
 # Parts:
 
 - D1 Mini [Reichelt](https://www.reichelt.de/de/en/d1-mini-esp8266-v3-0-d1-mini-p253978.html?&nbc=1)
