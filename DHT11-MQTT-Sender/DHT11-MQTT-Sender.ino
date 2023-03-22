@@ -119,7 +119,7 @@ void loop() {
 
   check_mqtt_connection();
 
-  // Read BME280 sensor and send every 5 seconds
+  // Read DHT sensor and send every 5 seconds
 
   if (MQTT_client.connected() && millis() - lastMsg > 5000) {
     lastMsg = millis();
