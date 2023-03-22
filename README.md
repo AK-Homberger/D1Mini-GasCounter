@@ -80,10 +80,9 @@ For a corretly working visualisation, please make sure to enable Influxdb loggin
 - mqtt.0.InsideTemperature
 - mqtt.0.Current
 - mqtt.0.DayEndCount
-- mqtt.0.Today
 - mqtt.0.Yesterday
 
-The standard setting "only store chnges" is sufficient.
+The standard setting "only store changes" is sufficient.
 
 The visualisation for the Bresser sensor supports also the Low Battery indicator in VIS. That means a blinking battery symbol is shown right to the humidity value, to indicate that the sensor is signaling a needed battery replacement.
 
