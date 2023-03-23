@@ -2,6 +2,8 @@
 
 A simple ESP8266 based (D1 Mini) counter for the gas meter with a web interface. It is measuring pulses from the gas meter and calculating consumption values which are shown on a web interface. It's available in English/German language. MQTT and ioBroker integration is supported as an option.
 
+![Meter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Meter.jpg)
+
 ![Counter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Webclient_en.png)
 
 ![Counter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Webclient_de.png)
@@ -14,8 +16,6 @@ It shows the overall consumption, the currrent day consumption, the consumption 
 In addition, the consumption fom the last hour and the total daily average consumption is shown.
 
 If the client supports MDNS (Bonjour), you can access the server with "gascounter.local". If not you have to use the IP-Address.
-
-![Meter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Meter.jpg)
 
 # Hardware
 The open collector output from the sensor is connected to pin D5 on the D1 Mini. No additional resistor is necessary due to the configured internal pull-up resistor for the D5 input pin.
