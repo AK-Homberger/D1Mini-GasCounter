@@ -17,7 +17,7 @@ It shows the overall consumption, the currrent day consumption, the consumption 
 
 In addition, the consumption fom the last hour and the total daily average consumption is shown.
 
-If the client supports MDNS (Bonjour), you can access the server with "gascounter.local". If not you have to use the IP-Address.
+If the client supports MDNS (Bonjour), you can access the server with "gascounter.local". If not, you have to use the IP-Address.
 
 # Hardware
 The open collector output from the sensor is connected to pin D5 on the D1 Mini. No additional resistor is necessary due to the configured internal pull-up resistor for the D5 input pin.
