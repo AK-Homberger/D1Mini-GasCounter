@@ -4,6 +4,8 @@ A simple ESP8266 based (D1 Mini) counter for the gas meter with a web interface.
 
 ![Meter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Meter.jpg)
 
+Web Interface (English/German):
+
 ![Counter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Webclient_en.png)
 
 ![Counter](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Webclient_de.png)
