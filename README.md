@@ -90,7 +90,7 @@ For a correctly working visualisation, please make sure to enable Influxdb loggi
 
 The standard setting "only store changes" is sufficient.
 
-The visualisation for the Bresser sensor supports also the Low Battery indicator in VIS. That means, a blinking battery symbol is shown right to the humidity value, to indicate that the sensor is signaling a needed battery replacement.
+The visualisation for the Bresser sensor supports also the Low Battery indicator in VIS. That means, a blinking battery symbol is shown right to the outside humidity value, to indicate that the sensor is signaling a needed battery replacement.
 
 # Parts:
 
