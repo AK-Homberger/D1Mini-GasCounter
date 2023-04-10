@@ -34,7 +34,7 @@ Two additional libraries have to be installed with the library manager in the Ar
 - ArduinoJson
 - PubSubClient
 
-Within the scetch you can select the language by coosing the desired header file, the timezone and set the wlan credentials.
+Within the [sketch](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Gascounter/Gascounter.ino) you can select the language by coosing the desired header file, the timezone and set the wlan credentials.
 If you want to publish data via MQTT then set "USE_MQTT" to "true" otherwise to "false". The MQTT server IP can be defined with the "mqtt_server" variable.
 
 ```
