@@ -13,7 +13,7 @@
 */
 
 // Gas counter with WLAN
-// Version 1.4, 20.02.2022, AK-Homberger
+// Version 1.5, 09.05.2022, AK-Homberger
 
 #include <time.h>
 #include <ESP8266WiFi.h>
@@ -138,7 +138,7 @@ void setup() {
   ArduinoOTA.begin();
 
   configTzTime(TZ_INFO, NTP_SERVER);    // Synchronise system time with NTP
-  getLocalTime(&local, 10000);          // Try  10 seconds
+  MyGetLocalTime(&local, 10000);          // Try  10 seconds
 }
 
 #if USE_MQTT == true
@@ -215,7 +215,7 @@ void Event_GetGasCount() {
   struct tm local;
   StaticJsonDocument<400> root;
 
-  getLocalTime(&local, 100);
+  MyGetLocalTime(&local, 100);
   if (!FullHour) {
     m3h = DeltaCounter / ((millis() - reset_time) / 1000) * 3600.0;
   } else {
@@ -290,7 +290,7 @@ void handleNotFound() {
 //*****************************************************************************
 // Get local time
 
-bool getLocalTime(struct tm * info, uint32_t ms)
+bool MyGetLocalTime(struct tm * info, uint32_t ms)
 {
   uint32_t start = millis();
   time_t now;
@@ -327,7 +327,7 @@ void loop() {
 #endif
 
   if (millis() - timer > 10000) {   // Synchronise local time ever 10 seconds
-    getLocalTime(&local, 10000);
+    MyGetLocalTime(&local, 10000);
     timer = millis();
 
     if (old_min == -1) {
