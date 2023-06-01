@@ -24,7 +24,7 @@ The open collector output from the sensor is connected to pin D5 on the D1 Mini.
 
 The sensor (LJ18A3-8-Z/BX) is supplied with 12 Volt (6-36 Volt). For the D1 Mini you need an additional [step-down converter](https://eckstein-shop.de/MiniDC-DCStep-downSpannungsreglerMP1584ENBuckPowerModuleOutout02C8-20V3A) to create 5 Volt from the 12 Volt. With a reed contact you can directly use 5 Volt power supply.
 
-![Diagram](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Diagram.png)
+![Diagram](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Diagram2.png)
 
 # Software
 The Arduino IDE has to be installed and the ESP8266 Board URL "https://arduino.esp8266.com/stable/package_esp8266com_index.json" has to be included in the preferences.
