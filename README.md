@@ -24,7 +24,7 @@ The open collector output from the sensor is connected to pin D5 on the D1 Mini.
 
 The sensor (LJ18A3-8-Z/BX) is supplied with 12 Volt (6-36 Volt). For the D1 Mini you need an additional [step-down converter](https://eckstein-shop.de/MiniDC-DCStep-downSpannungsreglerMP1584ENBuckPowerModuleOutout02C8-20V3A) to create 5 Volt from the 12 Volt. 
 
-With a reed contact you can directly use 5 Volt power supply.
+With a reed contact you can directly use a 5 Volt power supply or power it via USB.
 For the reed contact, I added now also a small capacitor (10 nF) to minimise the potential bouncing effect of the contact.
 
 ![Diagram](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/Diagram2.png)
