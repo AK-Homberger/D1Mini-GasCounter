@@ -12,7 +12,7 @@ Web interface (English/German):
 
 Depending on your gas meter type, it might be sufficient to use a reed contact switch. For my meter [Pipersberg G4 RF1 c](https://www.pipersberg.de/wp-content/uploads/2019/12/Gas_81_Daten-Gaszaehler-RF1c-G4G6.pdf) it was necesssary to use an inductive sensor [LJ18A3-8-Z/BX](https://www.amazon.de/gp/product/B071FTP2ZP/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1).
 
-Alternatively you can also use the original [Cyble Encoder Sensor](https://www.hausprofi24.com/shop/messtechnik/kommunikationstechnik/itron-cyble-sensor/) for this meter type.
+Alternatively you can also use the original [Cyble Encoder Sensor](https://mysmartshop.de/products/itron-cyble-sensor-v2-k1) for this meter type.
 
 With the web interface you can set the current metering value. After that, it counts the individual pulses from the meter (0.01 m^3).
 It shows the overall consumption, the currrent day consumption, the consumption from yesterday and the current consumption.
