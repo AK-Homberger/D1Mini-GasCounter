@@ -13,7 +13,7 @@
 */
 
 // DHT11 Tem/Hum MQTT Sender for ESP8266 (e.g. D1-Mini)
-// Version 1.0 - 22.03.2023
+// Version 1.1 - 28.07.2023
 
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
@@ -92,7 +92,7 @@ void check_mqtt_connection()
 
     Serial.print("Attempting MQTT connection...");
     // Create a random client ID
-    clientId += String(random(0xffff), HEX);
+    clientId += String(WiFi.macAddress());
     // Attempt to connect
     //if you MQTT broker has clientID,username and password
     //please change following line to    if (client.connect(clientId,userName,passWord))
@@ -130,7 +130,7 @@ void loop() {
     Temp = dht.readTemperature();   // Read Temperature
     Humidity = dht.readHumidity();  // Read Humidity
 
-    Serial.println("Publish values.");
+    Serial.println("Publish values: "+String(Temp)+ "°C  "+String(Humidity)+"%");
 
     // Publish formatted values
     snprintf(Text, sizeof(Text), "%4.1f", Temp);
