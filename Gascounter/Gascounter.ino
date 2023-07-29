@@ -156,7 +156,7 @@ void check_mqtt_connection()
     Serial.print("Attempting MQTT connection...");
     // Create a random client ID
     String clientId = "Gascounter-";
-    clientId += String(random(0xffff), HEX);
+    clientId += String(WiFi.macAddress());
     // Attempt to connect
     //if you MQTT broker has clientID,username and password
     //please change following line to    if (client.connect(clientId,userName,passWord))
