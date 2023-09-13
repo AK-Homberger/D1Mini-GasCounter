@@ -63,6 +63,16 @@ const char* mqtt_server = "192.168.0.71";
 #endif
 ```
 
+If you have configured MQTT with username an password on your MQTT server, then you have to provide usernae and passord in the function call. PLeas change line : 
+```
+  if (client.connect(clientId.c_str()))
+```
+to
+```  
+  if (client.connect(clientId.c_str()), "username", "passnord"))
+```
+Then it works.
+
 # ioBroker Integration and Data Visualisation
 
 I'm using MQTT to publish data to an [ioBroker](https://www.iobroker.net/) instance with an [influxDB](https://github.com/influxdata/influxdb#readme) database on a Raspberry server. That provides an easy was to log consumption data and to visualise the consumption history.
