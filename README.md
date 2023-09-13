@@ -62,14 +62,13 @@ PubSubClient client(Mqtt);
 const char* mqtt_server = "192.168.0.71";
 #endif
 ```
-
-If you have configured MQTT with username an password on your MQTT server, then you have to provide usernae and passord in the function call. PLeas change line : 
+If you have configured MQTT with username an password on your MQTT server, then you have to provide usernae and pawsword in the client.connect function call. Pleas change line : 
 ```
   if (client.connect(clientId.c_str()))
 ```
 to
 ```  
-  if (client.connect(clientId.c_str()), "username", "passnord"))
+  if (client.connect(clientId.c_str()), "username", "password"))
 ```
 Then it works.
 
