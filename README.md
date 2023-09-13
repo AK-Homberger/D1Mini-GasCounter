@@ -68,7 +68,7 @@ If you have configured MQTT with username an password on your MQTT server, then 
 ```
 to
 ```  
-  if (client.connect(clientId.c_str()), "username", "password"))
+  if (client.connect(clientId.c_str()), "username", "password")
 ```
 Then it works.
 
