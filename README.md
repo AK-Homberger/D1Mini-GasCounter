@@ -84,7 +84,7 @@ Detailled instructions for installation and configuration of ioBroker can be fou
 
 The following adapters have to be installed in ioBroker:
 - MQTT Broker/Client
-- Influxb
+- Influxdb
 - Visualisation VIS
 - Flot adapter
   
