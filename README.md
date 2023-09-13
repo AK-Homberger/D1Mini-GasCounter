@@ -82,6 +82,12 @@ I'm using MQTT to publish data to an [ioBroker](https://www.iobroker.net/) insta
 
 Detailled instructions for installation and configuration of ioBroker can be found [here](https://forum.iobroker.net/category/182/installation).
 
+The following adapters have to be installed in ioBroker:
+- MQTT Broker/Client
+- Influxb
+- Visualisation VIS
+- Flot adapter
+  
 The visualisation is available [here](https://github.com/AK-Homberger/D1Mini-GasCounter/blob/main/VIS-Project.zip). 
 First install the VIS and Flot adapter in ioBroker. Then import the downloaded visualisation ZIP-file with the VIS editor. 
 
