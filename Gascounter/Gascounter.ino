@@ -13,7 +13,7 @@
 */
 
 // Gas counter with WLAN
-// Version 1.5, 09.05.2022, AK-Homberger
+// Version 1.6, 13.11.2022, AK-Homberger
 
 #include <time.h>
 #include <ESP8266WiFi.h>
@@ -198,7 +198,7 @@ void addMinuteValue(void) {
 // Get hour value from ring buffer
 
 double getM3hValue(void) {
-  unsigned CurrentPtr = 0;
+  int CurrentPtr = 0;
 
   CurrentPtr = MinutePtr - 1;
   if (CurrentPtr < 0) CurrentPtr = 59;
