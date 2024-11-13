@@ -124,6 +124,7 @@ The visualisation for the Bresser sensor supports also the Low Battery indicator
 - Power Supply 12 Volt [Reichelt](https://www.reichelt.de/de/en/eco-friendly-plug-in-power-supply-unit-12-v-600-ma-2-5-mm-snt-600-12v-2-5-p108992.html?&nbc=1)
 
 # Updates:
+- Version 1.6 - 13.11.24: Changed pointer type from unsigned to signed to avoid wrong hour average value once per hour.
 - Version 1.5 - 09.05.23: Changed function name for "getLocalTime()" to "MyGetLocalTime()" to avoid problems with duplicate definitions in certain environments.
 - Version 1.4 - 20.02.23: Calculate values before MQTT send.
 - Version 1.3 - 13.02.23: Debouncing interrupt as preparation for reed contact use.
