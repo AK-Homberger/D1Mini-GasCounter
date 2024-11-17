@@ -185,7 +185,7 @@ void Event_Index() {                         // If "http://<ip address>/" reques
 // Add minute value to ring buffer
 
 void addMinuteValue(void) {
-  MinuteValue[MinutePtr] = DayCounter;
+  MinuteValue[MinutePtr] = GasCounter;
   MinutePtr++;
   if (MinutePtr > 59) {
     MinutePtr = 0;
